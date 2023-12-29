@@ -23,5 +23,5 @@ VECTORS_PATH = os.path.join(ROOT, "data/data_vectors")
 MODELS_PATH = {
     "rubert": 'cointegrated/rubert-tiny2',
     "distiluse": 'distiluse-base-multilingual-cased-v1',
-    "minilm": 'paraphrase-multilingual-MiniLM-L12-v2'
+    "miniLM": 'paraphrase-multilingual-MiniLM-L12-v2'
 }

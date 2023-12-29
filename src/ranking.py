@@ -62,4 +62,16 @@ class RankingModel:
         best_indices = sorted_indices[:self.best_num]
         df_for_search = self.vacancies if task == "vacancy_search" \
             else self.cvs
-        return df_for_search.iloc[best_indices]
+        best_candidates = df_for_search.iloc[best_indices]
+        if task == "vacancy_search":
+            best_candidates = best_candidates[['full_company_name', 'vacancy_name', 'schedule_type', 'salary',
+                                               'regionName', 'position_requirements', 'position_responsibilities',
+                                               'education', 'busy_type', 'contact_person'
+                                   ]]
+        else:
+            best_candidates = best_candidates[[
+                'positionName', 'scheduleType','busyType','salary','gender','age','localityName','academicDegree',
+                'hardSkills', 'softSkills', 'educationList','workExperienceList', 'retrainingCapability',
+                'businessTrip', 'relocation'
+            ]]
+        return best_candidates
